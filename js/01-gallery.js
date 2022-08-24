@@ -25,7 +25,9 @@ imagesGalleryContainer.insertAdjacentHTML("beforeend", createListElements);
 let instance = null;
 
 //*   Open  by  click   and create instance
+
 imagesGalleryContainer.addEventListener("click", onPaletteContainerClick);
+
 window.removeEventListener("keydown", onKeyPress);
 function onPaletteContainerClick(evt) {
   evt.preventDefault();

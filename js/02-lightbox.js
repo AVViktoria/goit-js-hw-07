@@ -14,24 +14,16 @@ const cardsSwitchMarkup = element => {
   console.log(createSwitchListElements);
   imagesSwitchGalleryContainer.insertAdjacentHTML('beforeend', createSwitchListElements);
 
+//*   Create   SimpleLightbox
 
+// let lightbox = new SimpleLightbox('.gallery a');
+// // $('.gallery__item a',).simpleLightbox({captionsData: "alt",  captionDelay: 250});
 
-  
-  var lightbox = new SimpleLightbox('.gallery a', { /* options */ });
-  var lightbox = $('.gallery a').simpleLightbox({ /* options */ });
+// lightbox.on('show.simplelightbox', function () {});
+// new SimpleLightbox('.gallery__item a', {captionsData: "alt",  captionDelay: 250});
 
-  let gallery = new SimpleLightbox('.gallery a');
-gallery.on('show.simplelightbox', function () {
-	// do something…
+const lightbox = new SimpleLightbox(".gallery a", {
+  captions: true,
+  captionsData: "alt",
+  captionDelay: 250,
 });
-
-gallery.on('error.simplelightbox', function (e) {
-	console.log(e); // some usefull information
-});
-
-// with jQuery nearly the same
-let gallery = $('.gallery a').simpleLightbox();
-gallery.on('show.simplelightbox', function () {
-	// do something…
-});
-
