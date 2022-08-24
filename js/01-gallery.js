@@ -49,6 +49,5 @@ function onKeyPress(evt) {
 
   if (isKeyCode) {
     instance.close();
-    window.removeEventListener("keydown", isModalClose);
   }
 }
