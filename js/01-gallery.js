@@ -1,10 +1,10 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-//*    Unpacking   galleryItems      
+//*    Unpacking   galleryItems
 
-const imagesGalleryContainer  = document.querySelector(".gallery");
-const cardsMarkup = element => {
+const imagesGalleryContainer = document.querySelector(".gallery");
+const cardsMarkup = (element) => {
   return `
   <div class="gallery__item">
   <a class="gallery__link" href="large-image.jpg">
@@ -15,47 +15,40 @@ const cardsMarkup = element => {
       alt="${element.description}"
     />
   </a>
-</div>`
-  
+</div>`;
 };
 
-  const createListElements = galleryItems.map(cardsMarkup).join('');
-  console.log(createListElements);
-  imagesGalleryContainer.insertAdjacentHTML('beforeend', createListElements);
+const createListElements = galleryItems.map(cardsMarkup).join("");
+console.log(createListElements);
+imagesGalleryContainer.insertAdjacentHTML("beforeend", createListElements);
 
 let instance = null;
 
-//*   Open  by  click   and create instance   
-imagesGalleryContainer.addEventListener('click', onPaletteContainerClick);
+//*   Open  by  click   and create instance
+imagesGalleryContainer.addEventListener("click", onPaletteContainerClick);
+window.removeEventListener("keydown", onKeyPress);
 function onPaletteContainerClick(evt) {
   evt.preventDefault();
 
-  if(!evt.target.classList.contains("gallery__image")){
+  if (!evt.target.classList.contains("gallery__image")) {
     return;
-  };
-const isCurrentImage = evt.target.dataset.source;
-instance = basicLightbox.create(
-  `<img class = "modal_image" src="${isCurrentImage}"/>`
-);
-instance.show();
-};
+  }
+  const isCurrentImage = evt.target.dataset.source;
 
-  //*   Modal  Window      
+  instance = basicLightbox.create(
+    `<img class = "modal_image" src="${isCurrentImage}"/>`
+  );
+  instance.show();
+  window.addEventListener("keydown", onKeyPress);
+}
 
-function isModalOpen(){
-window.addEventListener('keydown', isModalClose);
-};
+//*   Close  Modal  Window
+function onKeyPress(evt) {
+  const ESC_KEY_CODE = "Escape";
+  const isKeyCode = evt.code === ESC_KEY_CODE;
 
-function isModalClose(){
-  window.addEventListener('keydown', onKeyPress);
-  };
-
-  function onKeyPress(evt){
-const ESC_KEY_CODE = 'Escape';
-const isKeyCode = evt.code === ESC_KEY_CODE;
-
-if(isKeyCode){
-  instance.close();
-  window.removeEventListener('keydown', isModalClose)
-};
-  };
+  if (isKeyCode) {
+    instance.close();
+    window.removeEventListener("keydown", isModalClose);
+  }
+}

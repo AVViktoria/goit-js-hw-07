@@ -14,6 +14,9 @@ const cardsSwitchMarkup = element => {
   console.log(createSwitchListElements);
   imagesSwitchGalleryContainer.insertAdjacentHTML('beforeend', createSwitchListElements);
 
+
+
+  
   var lightbox = new SimpleLightbox('.gallery a', { /* options */ });
   var lightbox = $('.gallery a').simpleLightbox({ /* options */ });
 
