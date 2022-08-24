@@ -5,7 +5,18 @@ import { galleryItems } from './gallery-items.js';
 
 const imagesGalleryContainer  = document.querySelector(".gallery");
 const cardsMarkup = element => {
-  return ` <div class = 'gallery__item'><img src="${element.preview}" data-source = "${element.original}" alt="${element.description}" class ='gallery__image' ></img></div>`;
+  return `
+  <div class="gallery__item">
+  <a class="gallery__link" href="large-image.jpg">
+    <img
+      class="gallery__image"
+      src="${element.preview}"
+      data-source="${element.original}"
+      alt="${element.description}"
+    />
+  </a>
+</div>`
+  
 };
 
   const createListElements = galleryItems.map(cardsMarkup).join('');
@@ -38,7 +49,7 @@ window.addEventListener('keydown', isModalClose);
 function isModalClose(){
   window.addEventListener('keydown', onKeyPress);
   };
-  
+
   function onKeyPress(evt){
 const ESC_KEY_CODE = 'Escape';
 const isKeyCode = evt.code === ESC_KEY_CODE;
