@@ -16,12 +16,6 @@ const cardsSwitchMarkup = element => {
 
 //*   Create   SimpleLightbox
 
-// let lightbox = new SimpleLightbox('.gallery a');
-// // $('.gallery__item a',).simpleLightbox({captionsData: "alt",  captionDelay: 250});
-
-// lightbox.on('show.simplelightbox', function () {});
-// new SimpleLightbox('.gallery__item a', {captionsData: "alt",  captionDelay: 250});
-
 const lightbox = new SimpleLightbox(".gallery a", {
   captions: true,
   captionsData: "alt",
